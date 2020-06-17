@@ -24,3 +24,4 @@ exports.up = function (knex) {
     return knex.schema.dropTableIfExists("roles").dropTableIfExists("users");
   };
   
+  
