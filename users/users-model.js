@@ -5,7 +5,13 @@ module.exports = {
     find,
     findBy,
     findById,
+    getAll,
 };
+
+
+function getAll(){
+    return db('users')
+}
 
 function find() {
     return db("users").select("id", "username").orderBy("id");
@@ -13,14 +19,7 @@ function find() {
 
 // return the role name together with the user data
 function findBy(filter) {
-    // select u.id, u.username, u.password, r.name as role
-    // from users as u
-    // join roles as r on u.role = r.id
-    return db("users as u")
-        .join("roles as r", "u.role", "r.id")
-        .select("u.id", "u.username", "u.password", "r.name as role")
-        .where(filter)
-        .orderBy("u.id");
+    return db("users").where(filter).orderBy("id");
 }
 
 async function add(user) {
