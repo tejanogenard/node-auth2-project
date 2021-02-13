@@ -1,6 +1,7 @@
+require("dotenv").config()
 const jwt = require("jsonwebtoken");
-
 const constants = require("../config/constants.js");
+
 
 module.exports = (req, res, next) => {
     // add code here to verify users are logged in
